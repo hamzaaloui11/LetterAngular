@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Ajouter de l'espace en haut */
+        .espace-en-haut {
+            margin-top: 20px; /* Vous pouvez ajuster la valeur selon vos besoins */
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+
+<div class="container espace-en-haut">
+    <!-- Contenu de la page -->
+
+    <!-- Bouton bleu à gauche avec texte à gauche -->
+    <div class="d-flex justify-content-between align-items-center">
+        <span><h3>My Letters</h3></span>
+        <button type="button" class="btn btn-primary" (click)="redirectToNewLetter()">ADD NEW LETTER</button>
+    </div>
+    <div class="container espace-en-haut">
+      <div class="row">
+          <div class="col-md-3" *ngFor="let litter of litters">
+              <div class="card" (click)="toggleDetails(litter)">
+                  <div class="card-body">
+                      <!-- Contenu du premier panneau -->
+                      <div class="">
+                        <div style="white-space: pre-line;">
+                            <span><h4>{{ litter.nom }}</h4></span>
+                            <span><h5>{{ litter.receiverAd }}</h5></span>
+                          </div>
+                          <br>
+                          <span><h5>{{ litter.subject }}</h5></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          
+         
+      </div>
+  </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+

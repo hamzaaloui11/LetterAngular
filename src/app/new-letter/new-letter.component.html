@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .logo{
+            margin-left: 650px;
+        }
+       .example-form {
+               min-width: 150px;
+               max-width: 500px;
+               width: 100%;
+         }
+
+      .example-full-width {
+              width: 60%;
+           }
+    </style>
+    <title>Back to Overview</title>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="#" class="text-dark ">
+                    <i class="bi bi-arrow-left"></i> Back to Overview
+                </a>
+            </div>
+
+            <div class="col-md-2">
+                <h3>Letter {{litter?.id}}</h3>
+            </div>
+            <div class="col-md-3">
+                <mat-slide-toggle (click)="changePrvsMode()" class="mat-primary">Preview Mode</mat-slide-toggle>
+            </div>
+            <div class="col-md-3">
+                <button (click)="addLetter()" class="btn btn-primary ml-auto">Save</button>
+            </div>
+
+    </div>
+
+    </div>
+<div *ngIf="!prvsMode" class="container">
+    <div class="card ml-3 mr-3 mt-4">
+        <div class="card-body ml-5 ">
+
+            <br><br>
+          <div class="row">
+            <div class="col"> <!-- Utilisation d'une colonne Bootstrap pour aligner l'image à droite -->
+              <img src="assets/logo.png" alt="Description de l'image" width="140"  class="float-end mr-5">
+            </div>
+          </div>
+            <br><br><br>
+
+            <div class="row">
+                <div class="col-md-14">
+                    <mat-form-field class = "example-full-width">
+                        <mat-label >Sender Address</mat-label>
+                        <input  matInput [(ngModel)]="litter.senderAd" placeholder="Sender Address">
+                      </mat-form-field>
+                </div>
+
+            </div>
+            <div class="row mt-4" >
+                <p class="ml-2">Receiver Address</p><br>
+
+                  <div style="border-style: dashed" (click)="openAddAdressDialog()" class="col-md-6">
+                    <h4 *ngFor="let input of adressList">{{ input.value }}</h4>
+
+             </div>
+            </div>
+
+            <div class="row mt-4">
+                <p class="ml-2">Block A</p><br>
+                <div style="border-style: dashed"  class="col-md-6" class="example-full-width" >
+                    <div   matInput placeholder="Sender Address">{{ date + ' ' + todayDate()}}</div>
+                    <div   matInput placeholder="Sender Address">{{ 'Contact Person : Max MusterMann'}}</div>
+                  </div>
+            </div>
+
+            <br><br>
+
+            <div class="row">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Subject (optional)</mat-label>
+                <input matInput [(ngModel)]="litter.subject" placeholder="Subject (optional)">
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Body</mat-label>
+                    <textarea matInput [(ngModel)]="litter.body" placeholder="Body"></textarea>
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Footnot (optional)</mat-label>
+                <input matInput [(ngModel)]="litter.footnot" placeholder="Footnot (optional)">
+                  </mat-form-field>
+            </div>
+        </div>
+
+    </div>
+</div  >
+
+    <div *ngIf="prvsMode" class="container">
+      <div class="card ml-3 mr-3 mt-4">
+        <div class="card-body ml-5 ">
+
+          <br><br>
+          <div class="row">
+            <div class="col"> <!-- Utilisation d'une colonne Bootstrap pour aligner l'image à droite -->
+              <img src="assets/logo.png" alt="Description de l'image" width="140"  class="float-end mr-5">
+            </div>
+          </div>
+          <br><br><br>
+
+          <div class="row">
+            <div class="col-md-14">
+              <h3   placeholder="Sender Address"> {{ litter.senderAd }}</h3>
+
+            </div>
+
+          </div>
+          <div class="row mt-4" >
+
+            <div class="col-md-6">
+              <h4 *ngFor="let input of adressList">{{ input.value }}</h4>
+
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <p class="ml-2">Block A</p><br>
+            <div  class="col-md-6" class="example-full-width" >
+              <div   matInput placeholder="Sender Address">{{ date + ' ' + todayDate()}}</div>
+              <div   matInput placeholder="Sender Address">{{ 'Contact Person : Max MusterMann'}}</div>
+            </div>
+          </div>
+
+          <br><br>
+
+          <div class="row">
+            <h3   placeholder="Sender Address"> {{ litter.subject }}</h3>
+          </div>
+
+          <div class="row">
+
+            <h3   placeholder="Sender Address"> {{ litter.body }}</h3>
+
+          </div>
+
+          <div class="row">
+
+            <h3   placeholder="Sender Address"> {{ litter.footnot }}</h3>
+
+          </div>
+        </div>
+
+      </div>
+    </div  >
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+

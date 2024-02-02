@@ -1,0 +1,36 @@
+<div class="dialog-header">
+  <h2 mat-dialog-title>Add Address</h2>
+</div>
+
+<mat-dialog-content>
+  <form>
+    <div *ngFor="let input of inputs; let i = index">
+      <mat-form-field>
+        <input matInput placeholder="Input {{ i + 1 }}" [(ngModel)]="input.value" name="input{{ i }}">
+      </mat-form-field>
+      <button mat-icon-button color="warn" (click)="removeInput(i)">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-content>
+  <mat-icon (click)="addInput()" style="color: dodgerblue;">add</mat-icon>
+  <h3 (click)="addInput()" style="color:dodgerblue;margin-bottom: 2px;"><a>ADD LINE</a> </h3>
+</mat-dialog-content>
+<mat-dialog-content>
+
+    <h4 *ngFor="let input of inputs">{{ input.value }}</h4>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+
+  <div class="flex-container">
+    <div class="flex-item">
+    </div>
+    <div class="flex-item end-0">
+      <button mat-button (click)="save()">Save</button>
+      <button mat-button (click)="close()">Close</button>
+    </div>
+  </div>
+</mat-dialog-actions>

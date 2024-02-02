@@ -1,0 +1,19 @@
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-item {
+  margin-right: 10px; /* Adjust the margin as needed */
+}
+
+h3 {
+  display: inline; /* Ensures that the heading stays in the same line */
+  margin: 0; /* Remove default margin */
+}
